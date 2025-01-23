@@ -1,0 +1,197 @@
+1. What is a variable in Python? How is it different from other programming languages?
+Answer:
+A variable in Python is a name used to reference a value stored in memory. Unlike many other programming languages, Python variables are dynamically typed, meaning you don’t need to declare their type explicitly. The type is inferred based on the value assigned to the variable.
+
+For example:
+
+python
+Copy
+Edit
+x = 10  # Integer
+y = "Hello"  # String
+z = 3.14  # Float
+2. How do you declare a variable in Python? Does Python require explicit type declaration?
+Answer:
+In Python, you simply assign a value to a variable using the = operator. Python does not require explicit type declaration, as it is dynamically typed.
+
+Example:
+
+python
+Copy
+Edit
+name = "John"
+age = 25
+is_student = True
+3. What are the rules for naming variables in Python? Can you use reserved keywords as variable names?
+Answer:
+Rules:
+
+Variable names must start with a letter or an underscore (_).
+Variable names can only contain letters, numbers, and underscores.
+Variable names are case-sensitive (age and Age are different variables).
+Reserved keywords (e.g., def, class, if, else) cannot be used as variable names.
+Example of invalid variables:
+
+python
+Copy
+Edit
+1name = "John"  # Starts with a number
+class = 10  # Uses a reserved keyword
+4. What are global variables and local variables in Python? How are they different?
+Answer:
+
+Global variables are defined outside of a function and can be accessed throughout the program, including inside functions.
+Local variables are defined inside a function and can only be accessed within that function.
+Example:
+
+python
+Copy
+Edit
+x = 10  # Global variable
+
+def example():
+    y = 5  # Local variable
+    print("Inside function:", x, y)
+
+example()
+print("Outside function:", x)  # Accesses global variable
+# print(y)  # This will throw an error since 'y' is local
+5. How does Python handle variable scope? What is the LEGB rule?
+Answer:
+The LEGB rule defines the scope of variables in Python:
+
+Local: Variables defined inside a function.
+Enclosing: Variables in the local scope of enclosing functions (nested functions).
+Global: Variables defined at the top level of a script/module.
+Built-in: Names that are predefined in Python (e.g., print, len).
+Example:
+
+python
+Copy
+Edit
+x = "global"
+
+def outer():
+    x = "enclosing"
+
+    def inner():
+        x = "local"
+        print(x)  # Local scope
+    
+    inner()
+    print(x)  # Enclosing scope
+
+outer()
+print(x)  # Global scope
+6. What is the difference between mutable and immutable variables in Python? Give examples.
+Answer:
+
+Mutable variables can be modified after creation (e.g., lists, dictionaries, sets).
+Immutable variables cannot be modified after creation (e.g., strings, tuples, integers).
+Example:
+
+python
+Copy
+Edit
+# Immutable example
+x = "hello"
+x = x + " world"  # Creates a new string, old one remains unchanged
+
+# Mutable example
+y = [1, 2, 3]
+y.append(4)  # Modifies the original list
+7. What happens when you assign a variable to another variable in Python? Is it a deep copy or shallow copy?
+Answer:
+In Python, assigning a variable to another variable creates a reference to the same object, not a copy. This is a shallow copy for mutable types.
+
+Example:
+
+python
+Copy
+Edit
+x = [1, 2, 3]
+y = x  # y references the same object as x
+y.append(4)
+print(x)  # [1, 2, 3, 4] - x is modified too
+8. What is the purpose of the global and nonlocal keywords in Python?
+Answer:
+
+global: Used to access/modify a global variable inside a function.
+nonlocal: Used in nested functions to modify variables in the enclosing (non-global) scope.
+Example:
+
+python
+Copy
+Edit
+# Using global
+count = 0
+def increment():
+    global count
+    count += 1
+
+increment()
+print(count)  # 1
+
+# Using nonlocal
+def outer():
+    x = 10
+    def inner():
+        nonlocal x
+        x += 1
+    inner()
+    print(x)  # 11
+
+outer()
+9. How would you swap the values of two variables in Python without using a temporary variable?
+Answer:
+You can use tuple unpacking:
+
+python
+Copy
+Edit
+a = 5
+b = 10
+a, b = b, a
+print(a, b)  # 10, 5
+10. Write a program to demonstrate the difference between mutable and immutable variables.
+Answer:
+
+python
+Copy
+Edit
+# Immutable example
+x = "hello"
+print(id(x))  # Memory address of x
+x = x + " world"  # Creates a new string
+print(id(x))  # New memory address
+
+# Mutable example
+y = [1, 2, 3]
+print(id(y))  # Memory address of y
+y.append(4)  # Modifies the same object
+print(id(y))  # Same memory address
+11. What will be the output of this code? Why?
+python
+Copy
+Edit
+x = 10
+def change_x():
+    x = 20
+change_x()
+print(x)
+Answer:
+Output: 10
+The x inside the function is a local variable and does not affect the global x.
+
+12. What is the output of this code? Why?
+python
+Copy
+Edit
+x = [1, 2, 3]
+y = x
+y.append(4)
+print(x)
+Answer:
+Output: [1, 2, 3, 4]
+Since x and y reference the same list object, modifying y also affects x.
+
