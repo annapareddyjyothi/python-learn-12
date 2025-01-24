@@ -1,0 +1,173 @@
+1. Write a Python program to check if a number is even or odd.
+Question: How can you determine if a number entered by the user is even or odd?
+
+Answer:
+
+python
+Copy
+Edit
+# Input from user
+num = int(input("Enter a number: "))
+
+# Check if even or odd
+if num % 2 == 0:
+    print(f"{num} is even.")
+else:
+    print(f"{num} is odd.")
+2. Write a Python program to reverse a string input by the user.
+Question: How can you reverse a string using Python?
+
+Answer:
+
+python
+Copy
+Edit
+# Input from user
+text = input("Enter a string: ")
+
+# Reverse the string
+reversed_text = text[::-1]
+
+print(f"The reversed string is: {reversed_text}")
+3. Write a Python program to check if a string is a palindrome.
+Question: How would you check if the user input is a palindrome?
+
+Answer:
+
+python
+Copy
+Edit
+# Input from user
+text = input("Enter a string: ")
+
+# Check if it's a palindrome
+if text == text[::-1]:
+    print(f"{text} is a palindrome.")
+else:
+    print(f"{text} is not a palindrome.")
+4. Write a Python program to find the largest of three numbers.
+Question: How can you find the largest of three numbers entered by the user?
+
+Answer:
+
+python
+Copy
+Edit
+# Input three numbers
+a = int(input("Enter the first number: "))
+b = int(input("Enter the second number: "))
+c = int(input("Enter the third number: "))
+
+# Find the largest
+largest = max(a, b, c)
+
+print(f"The largest number is: {largest}")
+5. Write a Python program to print the Fibonacci sequence up to a given number.
+Question: How do you generate the Fibonacci sequence?
+
+Answer:
+
+python
+Copy
+Edit
+# Input from user
+n = int(input("Enter the number of terms: "))
+
+# Initialize the first two terms
+a, b = 0, 1
+count = 0
+
+# Generate the sequence
+print("Fibonacci sequence:")
+while count < n:
+    print(a, end=" ")
+    a, b = b, a + b
+    count += 1
+6. Write a Python program to handle division by zero.
+Question: How can you handle the exception for division by zero?
+
+Answer:
+
+python
+Copy
+Edit
+# Input two numbers
+try:
+    numerator = int(input("Enter the numerator: "))
+    denominator = int(input("Enter the denominator: "))
+
+    # Division operation
+    result = numerator / denominator
+    print(f"The result is: {result}")
+
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+7. Write a Python program to sort numbers entered by the user.
+Question: How can you sort a list of numbers?
+
+Answer:
+
+python
+Copy
+Edit
+# Input from user
+numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+
+# Sort the list
+numbers.sort()
+
+print(f"Sorted numbers: {numbers}")
+8. Write a Python program to count vowels in a string.
+Question: How do you count the number of vowels in a user input string?
+
+Answer:
+
+python
+Copy
+Edit
+# Input from user
+text = input("Enter a string: ")
+
+# Count vowels
+vowels = "aeiouAEIOU"
+count = sum(1 for char in text if char in vowels)
+
+print(f"The number of vowels in the string is: {count}")
+9. Write a Python program to check if a number is prime.
+Question: How can you determine if a user-input number is prime?
+
+Answer:
+
+python
+Copy
+Edit
+# Input from user
+num = int(input("Enter a number: "))
+
+# Check if prime
+if num > 1:
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            print(f"{num} is not a prime number.")
+            break
+    else:
+        print(f"{num} is a prime number.")
+else:
+    print(f"{num} is not a prime number.")
+10. Write a Python program to calculate the factorial of a number.
+Question: How can you calculate the factorial of a number entered by the user?
+
+Answer:
+
+python
+Copy
+Edit
+# Input from user
+num = int(input("Enter a number: "))
+
+# Calculate factorial
+factorial = 1
+for i in range(1, num + 1):
+    factorial *= i
+
+print(f"The factorial of {num} is: {factorial}")
