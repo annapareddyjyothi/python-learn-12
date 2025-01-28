@@ -1,0 +1,52 @@
+# Define global variables to track the state of the credit card
+cardholder_name = "John Doe"
+credit_limit = 5000
+balance = 0
+interest_rate = 0.15  # 15% interest
+payment_due_date = "15th of each month"
+
+def make_purchase(amount):
+    global balance
+    if balance + amount > credit_limit:
+        print("Purchase exceeds credit limit!")
+    else:
+        balance += amount
+        print(f"Purchase of {amount} added. New balance is: {balance}")
+
+def make_payment(amount):
+    global balance
+    if amount > balance:
+        print(f"Payment exceeds balance. Your current balance is {balance}.")
+    else:
+        balance -= amount
+        print(f"Payment of {amount} made. Remaining balance is: {balance}")
+
+def apply_interest():
+    global balance
+    interest = balance * interest_rate
+    balance += interest
+    print(f"Interest applied. New balance with interest is: {balance}")
+
+def display_balance():
+    print(f"Current balance: {balance}")
+
+def display_credit_limit():
+    print(f"Credit limit: {credit_limit}")
+
+def get_due_date():
+    print(f"Payment is due on: {payment_due_date}")
+
+# Example usage:
+if __name__ == "__main__":
+    display_credit_limit()
+    
+    make_purchase(2000)
+    display_balance()
+    
+    make_payment(500)
+    display_balance()
+    
+    apply_interest()
+    display_balance()
+    
+    get_due_date()
